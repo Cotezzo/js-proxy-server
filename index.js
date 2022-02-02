@@ -7,6 +7,8 @@ const http = require('http');
 
 const { networkInterfaces } = require('os');
 
+const RESET_COLOR = "\x1b[0m";
+
 /* ==== SETUP ================================================================ */
 const jsonParser = bodyParser.json()
 const app = express();
@@ -39,6 +41,9 @@ app.use('/', jsonParser, (clientRequest, clientResponse) => {
         options.port = 80
         protocol = http
     }
+
+    // Log received request
+    console.log(`[\x1b[90m${new Date().toLocaleTimeString()}${RESET_COLOR}] Request received: \x1b[35m${clientRequest.method}${RESET_COLOR} \x1b[33m${parsedHost}${clientRequest.url}${RESET_COLOR} from \x1b[33m${clientRequest.hostname}${RESET_COLOR} - Body: ${JSON.stringify(clientRequest.body)} - Headers: ${JSON.stringify(clientRequest.headers)}`);
 
     // Actual request made by the server with the received data
     const serverRequest = protocol.request(options, function (serverResponse) {

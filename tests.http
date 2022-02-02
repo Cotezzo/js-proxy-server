@@ -1,4 +1,4 @@
-POST http://192.168.1.63/posts
+POST http://192.168.1.96/posts
 url: https://jsonplaceholder.typicode.com///
 content-type: application/json
 accept: application/json
