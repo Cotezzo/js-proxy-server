@@ -7,7 +7,7 @@ accept: application/json
     "sad": "culo"
 }
 ###
-GET http://proxy-server-js.herokuapp.com/posts/101
+GET http://proxy-server-js.herokuapp.com/posts/10
 url: https://jsonplaceholder.typicode.com/
 ###
 GET https://jsonplaceholder.typicode.com/posts/10
