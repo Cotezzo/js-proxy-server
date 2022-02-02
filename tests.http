@@ -1,5 +1,5 @@
-POST http://192.168.1.96/posts
-url: https://jsonplaceholder.typicode.com///
+POST http://proxy-server-js.herokuapp.com/posts
+url: https://jsonplaceholder.typicode.com/
 content-type: application/json
 accept: application/json
 
@@ -7,8 +7,8 @@ accept: application/json
     "sad": "culo"
 }
 ###
-GET http://192.168.1.63/posts/101
-url: https://jsonplaceholder.typicode.com///
+GET http://proxy-server-js.herokuapp.com/posts/101
+url: https://jsonplaceholder.typicode.com/
 ###
 GET https://jsonplaceholder.typicode.com/posts/10
 ###
