@@ -5,13 +5,11 @@ const bodyParser = require('body-parser')
 const https = require('https');
 const http = require('http');
 
-const { networkInterfaces } = require('os');
-
-const RESET_COLOR = "\x1b[0m";
 
 /* ==== SETUP ================================================================ */
 const jsonParser = bodyParser.json()
 const app = express();
+
 
 /* ==== FORWARDER ============================================================ */
 app.use('/', jsonParser, (clientRequest, clientResponse) => {
@@ -78,15 +76,6 @@ app.use('/', jsonParser, (clientRequest, clientResponse) => {
 
 
 /* ==== START SERVER ========================================================= */
-// Get IP address of the machine
-const getAddress = () => {
-    const nets = networkInterfaces();
-    for (const name of Object.keys(nets))
-        for (const net of nets[name])
-            // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
-            if (net.family === 'IPv4' && !net.internal) return net.address;
-}
-
 const PORT = process.env.PORT || 80;
 app.listen(PORT)
-console.log(`Server started and listening on ${getAddress()}:${PORT}`);
+console.log(`Server started and listening on "http(s)://proxy-server-js.herokuapp.com"`);
